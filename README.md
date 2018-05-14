@@ -11,12 +11,17 @@ We want a webservice which can provide RESTful endpoints and serve the following
 - provide the list of ips without duplicates and can be filtered by environment, app or client name
 - remove a client ip from the list
 
+
+
+
 How to run:
 1.) mvn clean install
 2.) mvn jetty:run
 server will run via port 8080
 
 Note: Environments and Applications are already stored in the database. So there's no need to add them.
+
+
 
 API Endpoints:
 All Endpoints are available via Postman. Please use this link to open the collection
@@ -29,12 +34,15 @@ application/xml or application/json
 (GET) http://localhost:8080/rest/environments
 
 
+
 2.) List Applications
 (GET) http://localhost:8080/rest/applications
 
 
+
 3.) List Clients 
 (GET) http://localhost:8080/rest/clients
+
 
 
 4.) List Environment Applications 
@@ -43,10 +51,12 @@ Sample Request:
 (GET) http://localhost:8080/rest/environments/1/applications
 
 
+
 5.) Get Single Environment Application
 (GET) http://localhost:8080/rest/environments/{environmentId}/applications/{applicationId}
 Sample Request:
 (GET) http://localhost:8080/rest/environments/1/applications/2
+
 
 
 6.) List of Whitelist IPs specific to Envi, App and Client
@@ -55,6 +65,7 @@ query params:
 (Optional) clientName - name of client
 Sample Request:
 (GET) http://localhost:8080/rest/environments/1/applications/1/ipwhitelists?clientName=citi
+
 
 
 7.) List of Whitelist IPs - query by Envi, App and client (GET)
@@ -67,6 +78,7 @@ Sample Request:
 (GET) http://localhost:8080/rest/ipwhitelists?applicationId=1&environmentid=1&clientName=citi
 
 
+
 8.) Add a client ip (IPv4 only) to the whitelist specific to an environment and app (POST)
 (POST) http://localhost:8080/rest/environments/{environmentId}/applications/{applicationId}/ipwhitelists
 request body: 
@@ -77,12 +89,14 @@ Sample Request:
 {"ipAddress": "100.99.1.1", "clientName": "citi"}
 
 
+
 9.) Remove client ip to whitelist specific to envi, application and client
 (DELETE) http://localhost:8080/rest/environments/{environmentId}/applications/{applicationId}/ipwhitelists/{ipAddressId}?clientName={clientName}
 query params: 
 (Required) clientName
 Sample Request:
 (DELETE) http://localhost:8080/rest/environments/1/applications/1/ipwhitelists/1?clientName=citi
+
 
 
 10.) Remove client ip with envi, app and client as query params
