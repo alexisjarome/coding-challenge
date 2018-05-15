@@ -11,8 +11,9 @@ We want a webservice which can provide RESTful endpoints and serve the following
 - provide the list of ips without duplicates and can be filtered by environment, app or client name
 - remove a client ip from the list
 
-
-
+Pre-requisites:
+Maven: download here: https://maven.apache.org/download.cgi
+Java 8
 
 How to run:
 1.) mvn clean install
